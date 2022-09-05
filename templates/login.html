@@ -1,0 +1,14 @@
+{% extends "base_forms.html" %}
+{% block content %}
+
+<form method="post">
+    <h1>Hello there!</h1>
+    <h2>{{ msg }}</h2>
+    <br/><br/>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Login">
+</form>
+You don't have an account yet? <a href="/register/">Create it now!</a>
+
+{% endblock %}

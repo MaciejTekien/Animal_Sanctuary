@@ -1,0 +1,26 @@
+{% extends "base_default.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/Individuals.css' %}">
+
+    <div class="sup">
+<table>
+<tr class="top_table"><th>follow date</th><th>animal</th><th>note</th><th>link</th><th>delete</th></tr>
+{% for user in users %}
+    {% for follow in follows %}
+        {% if user == dude and user == follow.user %}
+
+            <tr>
+                <th>{{ follow.date }}</th>
+                <th>{{ follow.animal.name }}</th>
+                <th>{{ follow.note }}</th>
+                <th><a style="font-size: 16px" href="/description/{{ follow.animal.id }}">take me there</a></th>
+                <th><a style="font-size: 16px" href="/follow_delete/{{ follow.id }}">delete</a></th>
+            </tr>
+
+        {% endif %}
+    {% endfor %}
+{% endfor %}
+</table>
+</div>
+{% endblock %}

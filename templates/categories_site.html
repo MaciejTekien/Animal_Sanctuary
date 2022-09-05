@@ -1,0 +1,26 @@
+{% extends "base_default.html" %}
+{% block content %}
+{% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/Individuals.css' %}">
+<br><br>
+<div class="home">
+
+<a href="/dogs/">
+<table><tr>
+        <th><img src="{% static 'dog.png' %}"></th>
+    <tr>
+    <th>dogs</th>
+</tr></table></tr>
+</a>
+
+
+<a href="/cats/">
+    <table><tr>
+        <th><img src="{% static 'cat.png' %}"></th>
+    <tr>
+    <th>cats</th>
+</tr></table></tr>
+</a>
+
+</div>
+{% endblock %}

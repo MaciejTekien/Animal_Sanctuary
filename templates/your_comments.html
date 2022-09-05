@@ -1,0 +1,26 @@
+{% extends "base_default.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/Individuals.css' %}">
+
+    <div class="sup">
+<table>
+<tr class="top_table"><th>comment date</th><th>animal</th><th>content</th><th>link</th><th>delete</th></tr>
+{% for user in users %}
+    {% for comment in comments %}
+        {% if user == dude and user == comment.user %}
+
+            <tr>
+                <th>{{ comment.publish }}</th>
+                <th>{{ comment.animal.name }}</th>
+                <th>{{ comment.content }}</th>
+                <th><a style="font-size: 16px" href="/description/{{ comment.animal.id }}">take me there</a></th>
+                <th><a style="font-size: 16px" href="/comment_delete/{{ comment.id }}">delete</a></th>
+            </tr>
+
+        {% endif %}
+    {% endfor %}
+{% endfor %}
+</table>
+</div>
+{% endblock %}

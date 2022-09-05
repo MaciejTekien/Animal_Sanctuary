@@ -1,0 +1,101 @@
+{% extends "base_default.html" %}
+{% block content %}
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/Individuals.css' %}">
+<div class="sup">
+
+<br><br>
+<div class="center-text">We are open at:</div>
+<br>
+
+<table>
+
+    <tr class="top_table">
+        <th>DAY</th>
+        <th>OPEN</th>
+        <th>CLOSE</th>
+    </tr>
+
+    <tr>
+        <th>MONDAY</th><th>9:00</th><th>18:00</th>
+    </tr>
+
+    <tr>
+        <th>TUESDAY</th><th>9:00</th><th>18:00</th>
+    </tr>
+
+    <tr>
+        <th>WEDNESDAY</th><th>9:00</th><th>18:00</th>
+    </tr>
+
+    <tr>
+        <th>THURSDAY</th><th>9:00</th><th>18:00</th>
+    </tr>
+
+    <tr>
+        <th>FRIDAY</th><th>8:00</th><th>20:00</th>
+    </tr>
+
+    <tr>
+        <th>SATURDAY</th><th>8:00</th><th>20:00</th>
+    </tr>
+
+    <tr>
+        <th>SUNDAY</th><th>11:00</th><th>16:00</th>
+    </tr>
+
+</table>
+
+<br><br>
+<div class="center-text">Contact:</div>
+<br>
+
+<table>
+
+    <tr class="top_table">
+        <th>TYPE</th>
+        <th>INFO</th>
+        <th>DESCRIPTION</th>
+    </tr>
+
+    <tr>
+        <th>PHONE</th><th>727 323 888</th>
+        <th>We are answering when we can pick up the phone, if we can't, we will call you back!</th>
+    </tr>
+
+    <tr>
+        <th>MAIL</th><th>petpetworld@gmail.com</th>
+        <th>For more specific information, write an email to us. We are checking all of them at the end of the day!</th>
+    </tr>
+
+    <tr>
+        <th>JOB</th><th>petpetjob@gmail.com</th>
+        <th>You love animals? Want to work in great atmosphere? Send your CV here!</th>
+    </tr>
+
+</table>
+
+<br><br>
+<div class="center-text">Important information:</div>
+<br>
+
+<table>
+
+    <tr class="top_table">
+        <th>DATE</th>
+        <th>TYPE</th>
+        <th>DESCRIPTION</th>
+    </tr>
+
+{% for info in information %}
+    <tr>
+        <th>{{ info.date }}</th><th>{{ info.type }}</th><th>{{ info.description }}</th>
+    </tr>
+{% endfor %}
+
+</table>
+
+</div>
+
+{% endblock %}

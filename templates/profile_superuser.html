@@ -1,0 +1,34 @@
+{% extends "base_default.html" %}
+{% block content %}
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/Individuals.css' %}">
+
+<div class="profile_site">
+
+<img src="{% static 'profile_icon.png' %}"> <br> <h1>{{ user }}</h1>
+
+
+<h2>
+    <br><br>
+    <a href="/manage_panel">Manage Panel</a>
+    <br><br>
+    <a href="/temp_home_manage">Temporary Home Manage Panel</a>
+    <br><br>
+    <a href="/information_create/">Information Create</a>
+    <br><br>
+    <a href="/your_follows/">Your Follows</a>
+    <br><br>
+    <a href="/your_comments/">Your Comments</a>
+    <br><br>
+    <a href="/pass_reset/">Change Password</a>
+    <br><br>
+    <a href="/logout/">Logout</a>
+
+</h2>
+
+
+
+
+</div>
+{% endblock %}

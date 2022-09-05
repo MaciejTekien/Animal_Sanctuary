@@ -1,0 +1,36 @@
+{% extends "base_default.html" %}
+{% load static %}
+{% block content %}
+
+    <br><br>
+<div class="donate">
+        <a href="/donation_create/"> <button type="submit">Donate us here!</button> </a>
+    </div>
+    <br><br>
+<div class="center-text">
+    Our donators! Thank you!
+</div>
+
+    <br><br>
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/Individuals.css' %}">
+
+<div class="donations">
+<table>
+
+    <tr class="top_table">
+        <th>NAME</th>
+        <th>AMOUNT</th>
+        <th>MESSAGE</th>
+    </tr>
+
+    {% for donate in donation %}
+        <tr>
+            <th>{{ donate.name }}</th> <th>{{ donate.amount }}$</th> <th>{{ donate.message }}</th>
+        </tr>
+    {% endfor %}
+
+</table>
+</div>
+
+{% endblock %}

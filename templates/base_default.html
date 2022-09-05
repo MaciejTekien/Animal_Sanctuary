@@ -1,0 +1,25 @@
+{% load static %}
+<!-- CSS CUSTOM -->
+<link rel="stylesheet" type="text/css" href="{% static 'css/DefaultStyle.css' %}">
+<div class="container">
+    <header>
+        <img src="{% static 'PetPetLogo.jpg' %}" width="100%">
+    </header>
+    <div class="links">
+
+        <a href="{% url 'main_site' %}">HOME</a> <a href="/categories/">CATEGORIES</a> <a href="/donations/">DONATE</a>
+        <a href="/support/">SUPPORT</a>
+
+    </div>
+
+    <a class="login_register" href="/login/">LOGIN / REGISTER</a>
+
+    <div class="profile"> <a href="/profile/">
+        <img src="{% static 'profile_icon_2.png' %}">
+    </a> </div>
+
+</div>
+
+{% block content %}
+
+{% endblock %}

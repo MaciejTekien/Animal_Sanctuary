@@ -1,0 +1,52 @@
+{% extends "base_default.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/Individuals.css' %}">
+
+<div class="manage">
+    <br><br>
+    <p>THIS IS MENAGE PANEL</p>
+    <br>
+    <p><a href="/animal_create/">ADD NEW ANIMAL HERE</a></p>
+    <br>
+    <p>CLICK ON ANIMAL TO DELETE IT</p>
+    <br><br>
+</div>
+
+
+
+<div class="home">
+
+{% for animal in animals %}
+    {% if animal.type == 2 %}
+        <a href="/animal_delete/{{ animal.id }}">
+        <table><tr>
+        <th><img src="{% static 'dog.png' %}"></th>
+        <tr>
+            <th>{{ animal.name }}
+                <br>
+                age: {{ animal.age }}
+            </th>
+        </tr>
+        </table></a></tr>
+    {% endif %}
+
+
+    {% if animal.type == 1 %}
+        <a href="/animal_delete/{{ animal.id }}">
+        <table><tr>
+        <th><img src="{% static 'cat.png' %}"></th>
+        <tr>
+            <th>{{ animal.name }}
+                <br>
+                age: {{ animal.age }}
+            </th>
+        </tr>
+        </table></a></tr>
+    {% endif %}
+{% endfor %}
+
+</div>
+
+
+{% endblock %}

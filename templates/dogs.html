@@ -1,0 +1,30 @@
+{% extends "base_default.html" %}
+{% load static %}
+{% block content %}
+
+    <br><br>
+
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/Individuals.css' %}">
+
+<div class="home">
+
+{% for animal in animals %}
+    {% if animal.type == 2 %}
+        <a href="/description/{{ animal.id }}/">
+        <table><tr>
+        <th><img src="{% static 'dog.png' %}"></th>
+        <tr>
+            <th>{{ animal.name }}
+                <br>
+                age: {{ animal.age }}
+            </th>
+        </tr>
+        </table></a></tr>
+    {% endif %}
+{% endfor %}
+
+</div>
+
+
+{% endblock %}

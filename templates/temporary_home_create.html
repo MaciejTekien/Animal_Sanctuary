@@ -1,0 +1,13 @@
+{% extends "base_forms.html" %}
+{% block content %}
+
+<form method="post">
+    <h1>Set temporary home date here!</h1>
+    <br/><br/>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Set">
+</form>
+
+
+{% endblock %}

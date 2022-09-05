@@ -1,0 +1,13 @@
+{% extends 'base_forms.html' %}
+{% block content %}
+
+    <p>Are you sure you want to remove temporary home date from this animal?</p>
+    <form method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Delete">
+        <br><br>
+        <a href="/temp_home_manage"><input type="button" value="Cancel"></a>
+    </form>
+
+{% endblock %}

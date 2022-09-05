@@ -1,0 +1,122 @@
+{% extends "base_default.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/Individuals.css' %}">
+
+<div class="manage">
+    <br><br>
+    <p>THIS IS TEMPORARY HOME MENAGE PANEL</p>
+    <br>
+    <p>CLICK ON ANIMAL TO ADD NEW DATE</p>
+    <br><br>
+</div>
+
+
+
+<div class="home">
+
+
+{% for animal in animals %}
+    {% for temp in temps %}
+        {% if animal.id == temp.animal.id %}
+            <a href="/temp_home_delete/{{ temp.id }}">
+                {% if animal.type == 2 %}
+                    <table><tr>
+                    <th><img src="{% static 'dog.png' %}"></th>
+                    <tr>
+                        <th>{{ animal.name }} To delete!
+                            <br>
+                            age: {{ animal.age }}
+                        </th>
+                    </tr>
+                    </table></a></tr>
+                {% endif %}
+
+                {% if animal.type == 1 %}
+                    <table><tr>
+                    <th><img src="{% static 'cat.png' %}"></th>
+                    <tr>
+                        <th>{{ animal.name }} To delete!
+                            <br>
+                            age: {{ animal.age }}
+                        </th>
+                    </tr>
+                    </table></a></tr>
+                {% endif %}
+            </a>
+        {% endif %}
+    {% endfor %}
+{% endfor %}
+
+
+{% for animal in animals %}
+    <a href="/temporary_home/{{ animal.id }}">
+                {% if animal.type == 2 %}
+                    <table><tr>
+                    <th><img src="{% static 'dog.png' %}"></th>
+                    <tr>
+                        <th>{{ animal.name }}
+                            <br>
+                            age: {{ animal.age }}
+                        </th>
+                    </tr>
+                    </table></a></tr>
+                {% endif %}
+
+                {% if animal.type == 1 %}
+                    <table><tr>
+                    <th><img src="{% static 'cat.png' %}"></th>
+                    <tr>
+                        <th>{{ animal.name }}
+                            <br>
+                            age: {{ animal.age }}
+                        </th>
+                    </tr>
+                    </table></a></tr>
+                {% endif %}
+            </a>
+{% endfor %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+{#    {% if animal.type == 2 %}#}
+{#        <table><tr>#}
+{#        <th><img src="{% static 'dog.png' %}"></th>#}
+{#        <tr>#}
+{#            <th>{{ animal.name }}#}
+{#                <br>#}
+{#                age: {{ animal.age }}#}
+{#            </th>#}
+{#        </tr>#}
+{#        </table></a></tr>#}
+{#    {% endif %}#}
+{##}
+{##}
+{##}
+{##}
+{##}
+{#    {% if animal.type == 1 %}#}
+{#        <table><tr>#}
+{#        <th><img src="{% static 'cat.png' %}"></th>#}
+{#        <tr>#}
+{#            <th>{{ animal.name }}#}
+{#                <br>#}
+{#                age: {{ animal.age }}#}
+{#            </th>#}
+{#        </tr>#}
+{#        </table></a></tr>#}
+{#    {% endif %}#}
+</div>
+
+
+{% endblock %}

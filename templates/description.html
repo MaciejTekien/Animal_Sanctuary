@@ -1,0 +1,88 @@
+{% extends "base_default.html" %}
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/Individuals.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/FormStyles.css' %}">
+<div class="description">
+
+
+        {% if animal.type == 1 %}
+            <img src="{% static 'cat.png' %}">
+            {{ animal.name }}, age: {{ animal.age }}
+            <br>
+            <div class="desc">
+                <table>
+                    <tr><th>{{ animal.description }}</th></tr>
+                </table>
+
+                <br><br>
+                {% for temp in temps %}
+        {% if temp.animal.id == animal_id %}
+            We are looking for a temporary home for this animal since {{ temp.date }}
+        {% endif %}
+    {% endfor %}
+            </div>
+        {% endif %}
+
+        {% if animal.type == 2 %}
+            <img src="{% static 'dog.png' %}">
+            {{ animal.name }}, age: {{ animal.age }}
+            <br>
+            <div class="desc">
+                <table>
+                    <tr><th>{{ animal.description }}</th></tr>
+                </table>
+
+                <br><br>
+    {% for temp in temps %}
+        {% if temp.animal.id == animal_id %}
+            We are looking for a temporary home for this animal since {{ temp.date }}
+        {% endif %}
+    {% endfor %}
+                </div>
+
+                <br><br>
+                </div>
+
+            </div>
+        {% endif %}
+</div>
+
+
+{% with comments.count as total_comments %}
+    <h2>
+        {{ total_comments }} comment{{ total_comments|pluralize }}
+    </h2>
+{% endwith %}
+
+<div class="sup">
+    <table><tr class="top_table"><th>username</th><th>comment</th><th>date</th></tr>
+        {% for comment in comments %}
+            <tr>
+                <th>{{ comment.user }}</th>
+                <th>{{ comment.content }}</th>
+                <th>{{ comment.publish }}</th>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+
+    <div class="forms">
+
+<form method="post">
+    {% csrf_token %}
+    {{ comment_form.as_p }}
+    <button type="submit">Comment</button>
+</form>
+
+    {% for animal in animals %}
+    {% if animal_id == animal.id %}
+        <a href="/follow/{{ animal_id }}"><button>FOLLOW</button></a>
+   {% endif %}
+{% endfor %}
+
+</div>
+
+
+{% endblock %}
